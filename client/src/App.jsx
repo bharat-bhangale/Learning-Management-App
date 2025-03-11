@@ -1,16 +1,16 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Home from "./components/Home";
-import CourseList from "./components/CourseList";
-import CourseDetail from "./components/CourseDetail";
-import MyEnrollments from "./components/MyEnrollments";
-import Player from "./components/Player";
-import Loading from "./components/Loading";
-import Educator from "./components/Educator";
-import Dashboard from "./components/Dashboard";
-import AddCourse from "./components/AddCourse";
-import MyCourses from "./components/MyCourses";
-import StudentEnrolled from "./components/StudentEnrolled";
+import Home from "./pages/student/Home";
+import CourseList from "./pages/student/CoursesList";
+import CourseDetails from "./pages/student/CourseDetails";
+import MyEnrollments from "./pages/student/MyEnrollments";
+import Player from "./pages/student/Player";
+import Loading from "./components/student/Loading";
+import Educator from "./pages/educator/Educator";
+import Dashboard from "./pages/educator/Dashboard";
+import AddCourse from "./pages/educator/AddCourse";
+import MyCourses from "./pages/educator/MyCourses";
+import StudentEnrolled from "./pages/educator/StudentEnrolled";
 
 const App = () => {
   return (
@@ -19,7 +19,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/course-list" element={<CourseList />} />
         <Route path="/course-list/:input" element={<CourseList />} />
-        <Route path="/course/:id" element={<CourseDetail />} />
+        <Route path="/course/:id" element={<CourseDetails />} />
         <Route path="/my-enrollments" element={<MyEnrollments />} />
         <Route path="/player/:courseId" element={<Player />} />
         <Route path="/loading/:path" element={<Loading />} />
