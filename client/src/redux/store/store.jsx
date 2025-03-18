@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import allCourseSlice from "../features/allCourseSlice";
+import allCourseSlice from "../features/AllCourseSlice";
 
 const store = configureStore({
     reducer: {

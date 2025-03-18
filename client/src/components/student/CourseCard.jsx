@@ -1,7 +1,7 @@
 import React from "react";
 import { assets } from "../../assets/assets";
 import { Link } from "react-router-dom";
-import { calculateRating } from "../../redux/features/allCourseSlice";
+import { calculateRating } from "../../redux/features/AllCourseSlice";
 
 const CourseCard = ({ course }) => {
   const currency = import.meta.env.VITE_CURRENCY;

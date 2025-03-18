@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import CourseCard from "./CourseCard";
-import { setAllCourse } from "../../redux/features/allCourseSlice";
+import { setAllCourse } from "../../redux/features/AllCourseSlice";
 import { useEffect } from "react";
 
 const CoursesSection = () => {
