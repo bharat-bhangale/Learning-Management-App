@@ -1,15 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { assets } from "../../assets/assets";
 import { Link } from "react-router-dom";
 import { useClerk, UserButton, useUser } from "@clerk/clerk-react";
 import { useNavigate } from "react-router-dom";
+import { setIsEducator } from "../../redux/features/AllCourseSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const Navbar = () => {
     const isCourseListPage = location.pathname.includes("/course-list");
 
+    const dispatch = useDispatch();
     const { openSignIn } = useClerk();
     const { user } = useUser();
     const navigate = useNavigate();
+
+    const { isEducator } = useSelector((state) => state.allCourse);
+
+    useEffect(() => {
+        dispatch(setIsEducator(true));
+    }, [dispatch]);
 
     return (
         <div
@@ -26,8 +35,10 @@ const Navbar = () => {
                 <div className="flex items-center gap-5">
                     {user && (
                         <>
-                            <button>Become Educator</button> |{" "}
-                            <Link to="/my-enrollments">My Enrollments</Link>
+                            <button onClick={() => navigate("/educator")}>
+                                {isEducator ? "Educator Dashboard" : "Become Educator"}
+                            </button>{" "}
+                            | <Link to="/my-enrollments">My Enrollments</Link>
                         </>
                     )}
                 </div>
@@ -49,8 +60,10 @@ const Navbar = () => {
                 <div className="flex items-center gap-1 sm:gap-2 max:sm:text-xs cursor-pointer">
                     {user && (
                         <>
-                            <button>Become Educator</button>|{" "}
-                            <Link to="/my-enrollments">My Enrollments</Link>
+                            <button onClick={() => navigate("/educator")}>
+                                {isEducator ? "Educator Dashboard" : "Become Educator"}
+                            </button>{" "}
+                            |<Link to="/my-enrollments">My Enrollments</Link>
                         </>
                     )}
                 </div>
