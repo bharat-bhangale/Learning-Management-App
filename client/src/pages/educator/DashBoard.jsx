@@ -5,13 +5,11 @@ import { setDashboardData } from "../../redux/features/DashBoardSlice";
 
 const DashBoard = () => {
   const dispatch = useDispatch();
-
-  // Correct destructuring from redux state
   const { dashboardData } = useSelector((state) => state.dashboard);
 
   useEffect(() => {
     dispatch(setDashboardData());
-  }, [dispatch]); // Removed dashboardData from dependencies to avoid unnecessary calls
+  }, [dispatch]);
 
   return dashboardData ? (
     <div className="min-h-screen flex flex-col items-start justify-between gap-8 md:p-8 md:pb-0 p-4 pt-8 pb-0">
