@@ -6,6 +6,7 @@ import { setDashboardData } from "../../redux/features/DashBoardSlice";
 const DashBoard = () => {
   const dispatch = useDispatch();
   const { dashboardData } = useSelector((state) => state.dashboard);
+  const currency = import.meta.env.VITE_CURRENCY;
 
   useEffect(() => {
     dispatch(setDashboardData());
@@ -42,7 +43,7 @@ const DashBoard = () => {
             <img src={assets.earning_icon} alt="earning_icon" />
             <div>
               <p className="text-2xl font-medium text-gray-600">
-                {dashboardData.totalEarnings}
+                {currency} {dashboardData.totalEarnings}
               </p>
               <p className="text-base text-gray-500">Total Earnings</p>
             </div>
